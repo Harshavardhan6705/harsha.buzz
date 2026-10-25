@@ -10,9 +10,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   icons: {
     icon: [
-      { url: "https://framerusercontent.com/images/v7z1kGU12MTRf2tV0m8a1icBsg.png" },
+      { url: "/favicon.svg?v=1", type: "image/svg+xml" },
+      { url: "/favicon-32.png?v=1", type: "image/png", sizes: "32x32" },
     ],
-    apple: "https://framerusercontent.com/images/FX8uucO9lAxLSbNxydLpg.png",
+    apple: "/apple-touch-icon.png?v=1",
   },
 };
 
