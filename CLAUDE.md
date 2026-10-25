@@ -53,6 +53,11 @@ site served through **Next.js 15 App Router + TypeScript**.
   only AWS, Oracle and DevOps Complete Course (owner's request); the other
   three rows exist only in about/resume/contact. Résumé timeline
   (TSOp `mvrs-tl`): hard-coded `[title, issuer, url]` list in the module.
+- Page titles are just "Harshavardhan J" (HTML `<title>`/og/twitter in all six
+  pages and the `title:` of the four Framer route modules). The link-preview
+  image is `assets/og-image.jpg` (1200×630, the owner's mandala portrait from
+  `about-portrait.webp` on a blurred copy of itself), referenced absolutely as
+  `https://www.harsha.buzz/assets/og-image.jpg` from every page.
 - `next.config.ts` sets short cache lifetimes for `/_fr/*` and `/assets/*`.
 - `public/_fr/` and `public/assets/` — Framer runtime modules and images,
   served at their original absolute paths `/_fr/*` and `/assets/*`.
