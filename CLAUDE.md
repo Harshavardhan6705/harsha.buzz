@@ -52,13 +52,26 @@ site served through **Next.js 15 App Router + TypeScript**.
   1–2 are in the Framer markup, the rest in `#mv-case-rows`. The home page shows
   only AWS, Oracle and DevOps Complete Course (owner's request); the other
   three rows exist only in about/resume/contact. Résumé timeline
-  (TSOp `mvrs-tl`): hard-coded `[title, issuer, url]` list in the module.
+  (TSOp `mvrs-tl`): hard-coded `[title, issuer, url]` list in the module. The
+  template's fake job highlights (b1–b4 fallbacks) were removed.
+- Professional Training (Greens Technologies, Chennai, Oct 2026; no course
+  fee/package on the site — owner's request): a section before Certifications
+  in the Résumé timeline (TSOp, `.mvrs-train`, bullets `.mvrs-tr`; scroll motion via
+  its own `jTR` ref + effect, copied from the Certifications `jC9` one), and a
+  `train` group in the credits list (MvKit `he` groups + `groupTrain`), fed by
+  the `train-greens` row (`data-f5="train"`) in `#mv-case-rows`.
+- Résumé PDF: `public/Harshavardhan_J_Resume.pdf` (+ repo-root copy for :5500), the
+  owner's one-page résumé. On the Résumé page (TSOp) `pdfLink` is
+  `/Harshavardhan_J_Resume.pdf`; "Print" prints that PDF via a hidden iframe
+  (`#mv-pdf-print`; iOS opens it in a new tab) and "Download PDF" downloads it.
+  Replace both PDF copies to update the résumé.
 - Page titles are just "Harshavardhan J" (HTML `<title>`/og/twitter in all six
   pages and the `title:` of the four Framer route modules). The link-preview
   image is `assets/og-image.jpg` (1200×630, the owner's mandala portrait from
   `about-portrait.webp` on a blurred copy of itself), referenced absolutely as
   `https://www.harsha.buzz/assets/og-image.jpg` from every page.
-- `next.config.ts` sets short cache lifetimes for `/_fr/*` and `/assets/*`.
+- `next.config.ts` makes browsers re-check `/_fr/*` and `/assets/*` on every
+  visit (`max-age=0, must-revalidate`), so in-place edits show up immediately.
 - `public/_fr/` and `public/assets/` — Framer runtime modules and images,
   served at their original absolute paths `/_fr/*` and `/assets/*`.
 - The Formspree contact form and all animations live inside the Framer
@@ -103,5 +116,3 @@ site served through **Next.js 15 App Router + TypeScript**.
   Exception: the header menu (`.mvhd-links`) and footer "Pages" list in the
   saved HTML were updated by hand to the real links, so the old template menu
   (Work/Writing) no longer flashes before hydration.
-- `/_fr/*` is cached 10 minutes: after editing a runtime module, hard-reload
-  to see the change.

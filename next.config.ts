@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
-// Framer runtime modules and project images are served from public/ with
-// `max-age=0` by default, so every page change re-validated ~30 modules and
-// the images. Cache them briefly and refresh in the background instead. Not
-// `immutable`: some /_fr files and /assets images are edited in place under
-// the same name, and such edits must still reach returning visitors.
-const shortLivedAsset = "public, max-age=600, stale-while-revalidate=86400";
+// Framer runtime modules and project images are edited in place under the same
+// file names, so browsers must never reuse an old copy: they keep the file but
+// re-check it on every visit (a cheap 304 when unchanged). The previous
+// `max-age=600, stale-while-revalidate=86400` kept serving old code for up to
+// a day after an edit (owner's request to always show the latest version).
+const shortLivedAsset = "public, max-age=0, must-revalidate";
 
 const nextConfig: NextConfig = {
   // The routes serve the original Framer-export documents; the Framer runtime
